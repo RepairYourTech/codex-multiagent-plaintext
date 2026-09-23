@@ -22,6 +22,94 @@ ENVV="CODEX_CLI_PATH=$INSTALL_DIR/bin/codex CODEX_MULTI_AGENT_V2_MESSAGE_DELIVER
 say() { printf '%s\n' "$*"; }
 die() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
 
+# Ensures features.multi_agent_v2.max_concurrent_threads_per_session exists in
+# the global codex config.toml, defaulting to 4 (1 main agent + 3 subagents).
+# Never overwrites an existing value; backs up the file before editing.
+ensure_concurrency_config() {
+    CONFIG="${CODEX_HOME:-$HOME/.codex}/config.toml"
+    DEFAULT="${CODEX_PLAINTEXT_DEFAULT_CONCURRENCY:-4}"
+    KEY="max_concurrent_threads_per_session"
+    BACKUP="$CONFIG.bak-codex-plaintext-$(date +%Y%m%d%H%M%S)"
+
+    if [ ! -f "$CONFIG" ]; then
+        mkdir -p "$(dirname "$CONFIG")"
+        printf '[features]\nmulti_agent_v2 = { enabled = true, %s = %s }\n' "$KEY" "$DEFAULT" > "$CONFIG"
+        say "Created $CONFIG with multi_agent_v2 $KEY=$DEFAULT"
+        return 0
+    fi
+
+    # --- Case detection
+    HAS_INLINE=0; INLINE_HAS_KEY=0; HAS_SECTION=0; SECTION_HAS_KEY=0
+    eval "$(awk -v key="$KEY" '
+        /^[[:space:]]*multi_agent_v2[[:space:]]*=[[:space:]]*\{/ {
+            inline_seen = 1
+            if ($0 ~ key) inline_key = 1
+        }
+        /^\[features\.multi_agent_v2\]/ { sect_seen = 1; in_sect = 1; next }
+        in_sect && /^\[/ { in_sect = 0 }
+        in_sect && $0 ~ "^[[:space:]]*" key "[[:space:]]*=" { sect_key = 1 }
+        /^\[features\][[:space:]]*$/ { features = 1 }
+        END {
+            printf "HAS_INLINE=%d; INLINE_HAS_KEY=%d; HAS_SECTION=%d; SECTION_HAS_KEY=%d; HAS_FEATURES=%d\n",
+                inline_seen, (inline_key ? 1 : 0), (sect_seen ? 1 : 0), (sect_key ? 1 : 0), (features ? 1 : 0)
+        }
+    ' "$CONFIG")"
+
+    # --- Existing value: respect it
+    if { [ "$HAS_INLINE" = "1" ] && [ "$INLINE_HAS_KEY" = "1" ]; } \
+        || { [ "$HAS_SECTION" = "1" ] && [ "$SECTION_HAS_KEY" = "1" ]; }; then
+        say "multi_agent_v2.$KEY already set in $CONFIG — leaving your value."
+        return 0
+    fi
+
+    cp "$CONFIG" "$BACKUP"
+
+    # --- Inline table without the key: insert it into the braces
+    if [ "$HAS_INLINE" = "1" ]; then
+        awk -v key="$KEY" -v val="$DEFAULT" '
+            !done && /^[[:space:]]*multi_agent_v2[[:space:]]*=[[:space:]]*\{/ {
+                sub(/\{/, "{ " key " = " val ",")
+                done = 1
+            }
+            { print }
+        ' "$BACKUP" > "$CONFIG"
+        say "Added $KEY=$DEFAULT to the existing multi_agent_v2 table in $CONFIG"
+        return 0
+    fi
+
+    # --- [features.multi_agent_v2] section without the key: insert after header
+    if [ "$HAS_SECTION" = "1" ]; then
+        awk -v key="$KEY" -v val="$DEFAULT" '
+            !done && /^\[features\.multi_agent_v2\]/ {
+                print
+                print "  " key " = " val
+                done = 1
+                next
+            }
+            { print }
+        ' "$BACKUP" > "$CONFIG"
+        say "Added $KEY=$DEFAULT under [features.multi_agent_v2] in $CONFIG"
+        return 0
+    fi
+
+    # --- No multi_agent_v2 at all
+    LINE="multi_agent_v2 = { enabled = true, $KEY = $DEFAULT }"
+    if [ "$HAS_FEATURES" = "1" ]; then
+        awk -v line="$LINE" '
+            BEGIN { infeat = 0; injected = 0 }
+            /^\[features\][[:space:]]*$/ { infeat = 1; print; next }
+            /^\[/ { if (infeat && !injected) { print line; injected = 1 } infeat = 0; print; next }
+            { print }
+            END { if (infeat && !injected) print line }
+        ' "$BACKUP" > "$CONFIG"
+        say "Added multi_agent_v2 ($KEY=$DEFAULT) to the [features] section in $CONFIG"
+    else
+        { printf '\n[features]\n%s\n' "$LINE"; } | cat "$BACKUP" - > "$CONFIG"
+        say "Appended [features] multi_agent_v2 ($KEY=$DEFAULT) to $CONFIG"
+    fi
+    say "Backup of the previous config saved as $BACKUP"
+}
+
 # --- Locate a core binary: local file first, otherwise download the release asset
 OS="$(uname -s)"
 ARCH="$(uname -m)"
@@ -96,6 +184,9 @@ else
     say "      The code-mode-host sibling was NOT linked; exec/browser tools will"
     say "      need it — see README ('code-mode host')."
 fi
+
+# --- Ensure subagent concurrency is configured (default 4 = 1 main + 3 children)
+ensure_concurrency_config
 
 # --- Wire the app to the patched core
 if [ "$OS" = "Linux" ]; then

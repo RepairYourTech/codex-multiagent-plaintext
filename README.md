@@ -21,6 +21,13 @@ unnecessary (see [Maintenance](#maintenance)).
 **Unofficial.** Not affiliated with or endorsed by OpenAI. Patch and binaries
 are Apache-2.0, same as [openai/codex](https://github.com/openai/codex).
 
+This patch is meant to be used with
+[opencodex](https://github.com/lidge-jun/opencodex) — a local proxy that lets
+Codex use almost any LLM provider. opencodex (or any similar router) gets
+third-party models **into** Codex; this patch makes MultiAgentV2 subagents on
+those models actually **receive their tasks**. See
+[Pairing with opencodex](#pairing-with-opencodex).
+
 ## What the patch does
 
 - Adds an opt-in delivery policy; **encrypted stays the default**, so OpenAI ↔
@@ -85,6 +92,53 @@ Ask your app (parent on any model) to spawn a subagent **on a third-party
 model** with the task *"Reply with exactly DELIVERY_OK"*, then report the
 child's answer. Before the patch the child answers something like *"I don't
 see a specific task"*; after it, the child replies `DELIVERY_OK`.
+
+## Pairing with opencodex
+
+[opencodex](https://github.com/lidge-jun/opencodex) is a MIT-licensed local
+proxy (TypeScript on a bundled Bun runtime) that translates Codex's Responses
+API to 40+ providers — Anthropic, Gemini, xAI, DeepSeek, Kimi, Qwen, Ollama,
+OpenRouter, or any OpenAI-compatible endpoint — with model routing via
+`provider/model`, failover combos, OAuth logins, and a web dashboard:
+
+```bash
+npm install -g @bitkyc08/opencodex
+ocx start
+```
+
+The two projects solve complementary halves of the same problem:
+
+- **opencodex** routes Codex sessions to third-party providers.
+- **This patch** fixes MultiAgentV2 subagent delivery on those providers —
+  without it, children spawned through any router receive an empty task and
+  silently do nothing (their assignment travels as OpenAI-encrypted content
+  the router's providers cannot read).
+
+Install opencodex first, then run this installer, then use the DELIVERY_OK
+test below to confirm cross-provider subagents work end-to-end. Note that the
+patch itself is provider-agnostic: it works with any OpenAI-compatible
+provider, whether routed through opencodex, another gateway, or configured
+directly.
+
+## Subagent concurrency
+
+The installer also makes sure `features.multi_agent_v2.max_concurrent_threads_per_session`
+is set in your global `~/.codex/config.toml`, **defaulting to 4 — one main agent
+plus up to 3 concurrent subagents**. If you already have a value there, it is
+left untouched; otherwise a timestamped `config.toml.bak-codex-plaintext-*`
+backup is written next to it before editing. This is a stock codex key, so it
+stays compatible with unpatched codex builds.
+
+Want more subagents running at once? Raise it, e.g.:
+
+```toml
+[features.multi_agent_v2]
+max_concurrent_threads_per_session = 8   # 1 main agent + 7 subagents
+```
+
+Keep in mind that every concurrent subagent is its own model conversation:
+more parallelism burns tokens faster and can hit provider rate limits, so the
+conservative default of 4 is usually what you want.
 
 ## Compatibility
 
