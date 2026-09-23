@@ -1,0 +1,6 @@
+This project patches and redistributes build instructions for OpenAI's Codex
+(https://github.com/openai/codex), licensed under the Apache License, Version 2.0.
+The patch in plaintext-delivery.patch modifies codex-rs sources at tag
+rust-v0.155.0-alpha.9.2. Prebuilt release binaries are unmodified builds of
+those patched sources. This project is unofficial and not affiliated with
+OpenAI.

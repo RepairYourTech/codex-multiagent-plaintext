@@ -1,0 +1,111 @@
+name: build-release
+
+on:
+  workflow_dispatch:
+    inputs:
+      core_tag:
+        description: 'openai/codex tag to patch (rust-v...)'
+        required: true
+        default: 'rust-v0.155.0-alpha.9.2'
+      release_tag:
+        description: 'Release tag to publish (v...-plaintextN)'
+        required: true
+        default: 'v0.155.0-alpha.9.2-plaintext1'
+  push:
+    branches: [main]
+    paths:
+      - 'plaintext-delivery.patch'
+      - '.github/workflows/build.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            platform: linux-x86_64
+          - os: ubuntu-24.04-arm
+            platform: linux-aarch64
+          - os: macos-latest
+            platform: macos-arm64
+          - os: macos-13
+            platform: macos-x86_64
+          - os: windows-latest
+            platform: windows-x86_64
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checkout openai/codex at tag
+        uses: actions/checkout@v4
+        with:
+          repository: openai/codex
+          ref: ${{ inputs.core_tag || 'rust-v0.155.0-alpha.9.2' }}
+          path: codex
+          fetch-depth: 1
+
+      - name: Apply patch
+        shell: bash
+        run: git -C codex apply --3way plaintext-delivery.patch
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: codex/codex-rs
+
+      - name: Build codex-cli
+        shell: bash
+        run: cargo build --release -p codex-cli
+        working-directory: codex/codex-rs
+
+      - name: Package (unix)
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          strip codex/codex-rs/target/release/codex || true
+          VERSION='${{ inputs.core_tag || 'rust-v0.155.0-alpha.9.2' }}'
+          VERSION="${VERSION#rust-v}"
+          mkdir -p dist
+          tar -czf "dist/codex-${VERSION}-${{ matrix.platform }}.tar.gz" \
+              -C codex/codex-rs/target/release codex
+
+      - name: Package (windows)
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          VERSION='${{ inputs.core_tag || 'rust-v0.155.0-alpha.9.2' }}'
+          VERSION="${VERSION#rust-v}"
+          mkdir -p dist
+          7z a "dist/codex-${VERSION}-${{ matrix.platform }}.zip" \
+              ./codex/codex-rs/target/release/codex.exe
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: codex-${{ matrix.platform }}
+          path: dist/*
+
+  release:
+    needs: build
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - name: Create or update release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG='${{ inputs.release_tag }}'
+          if ! gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$TAG" -R "$GITHUB_REPOSITORY" \
+              --title "$TAG" --notes "Patched codex core builds (${{ inputs.core_tag }}). See README for install and usage."
+          fi
+          gh release upload "$TAG" -R "$GITHUB_REPOSITORY" dist/* --clobber

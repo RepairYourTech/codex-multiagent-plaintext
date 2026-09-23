@@ -1,0 +1,2390 @@
+diff --git a/codex-rs/Cargo.lock b/codex-rs/Cargo.lock
+index cdb51f2..83d5333 100644
+--- a/codex-rs/Cargo.lock
++++ b/codex-rs/Cargo.lock
+@@ -416,7 +416,7 @@ checksum = "2a4385e2e34eb35d6b3efe798b9eb88096925d87726c0798709bf56d9ed84af3"
+ 
+ [[package]]
+ name = "app_test_support"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "base64 0.22.1",
+@@ -2041,7 +2041,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-agent-extension"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-core",
+@@ -2053,7 +2053,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-agent-graph-store"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-protocol",
+  "codex-state",
+@@ -2068,7 +2068,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-agent-identity"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "base64 0.22.1",
+@@ -2088,7 +2088,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-agent-roles"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-config",
+  "codex-file-system",
+@@ -2101,7 +2101,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-analytics"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-app-server-protocol",
+  "codex-git-utils",
+@@ -2122,7 +2122,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-ansi-escape"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "ansi-to-tui",
+  "ratatui",
+@@ -2131,7 +2131,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-api"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "assert_matches",
+@@ -2169,7 +2169,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-app-server"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "app_test_support",
+@@ -2276,7 +2276,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-app-server-client"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-app-server",
+  "codex-app-server-protocol",
+@@ -2303,7 +2303,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-app-server-daemon"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "blake3",
+@@ -2328,7 +2328,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-app-server-protocol"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-app-server-protocol-noop-macros",
+@@ -2362,11 +2362,11 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-app-server-protocol-noop-macros"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ 
+ [[package]]
+ name = "codex-app-server-test-client"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "clap",
+@@ -2388,7 +2388,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-app-server-transport"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "axum",
+@@ -2431,7 +2431,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-apply-patch"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "assert_cmd",
+@@ -2451,7 +2451,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-arg0"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-apply-patch",
+@@ -2473,7 +2473,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-async-utils"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "pretty_assertions",
+  "tokio",
+@@ -2482,7 +2482,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-attachment-store"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "pretty_assertions",
+  "serde",
+@@ -2491,7 +2491,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-aws-auth"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "aws-config",
+  "aws-credential-types",
+@@ -2506,7 +2506,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-backend-client"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-api",
+@@ -2526,7 +2526,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-backend-openapi-models"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "serde",
+  "serde_json",
+@@ -2535,7 +2535,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-build-info"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-install-context",
+  "pretty_assertions",
+@@ -2548,7 +2548,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-bwrap"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "cc",
+  "libc",
+@@ -2557,7 +2557,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-chatgpt"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "clap",
+@@ -2579,7 +2579,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-cli"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "app_test_support",
+@@ -2673,7 +2673,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-client"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-http-client",
+  "eventsource-stream",
+@@ -2686,7 +2686,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-cloud-config"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "base64 0.22.1",
+  "chrono",
+@@ -2711,7 +2711,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-cloud-tasks"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "chrono",
+@@ -2744,7 +2744,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-cloud-tasks-client"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "chrono",
+@@ -2759,7 +2759,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-cloud-tasks-mock-client"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "chrono",
+  "codex-cloud-tasks-client",
+@@ -2768,7 +2768,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-code-mode"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-code-mode-protocol",
+  "codex-http-client",
+@@ -2791,7 +2791,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-code-mode-host"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "axum",
+@@ -2819,7 +2819,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-code-mode-protocol"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-protocol",
+  "glob",
+@@ -2837,7 +2837,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-code-mode-runtime"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "base64 0.22.1",
+  "codex-code-mode-protocol",
+@@ -2855,11 +2855,11 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-collaboration-mode-templates"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ 
+ [[package]]
+ name = "codex-config"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "base64 0.22.1",
+@@ -2909,7 +2909,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-config-schema"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "clap",
+@@ -2918,7 +2918,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-connectors"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "arc-swap",
+@@ -2940,7 +2940,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-connectors-extension"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-connectors",
+  "codex-core-plugins",
+@@ -2954,7 +2954,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-context-fragments"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-protocol",
+  "codex-utils-string",
+@@ -2963,7 +2963,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-core"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "arc-swap",
+@@ -3099,7 +3099,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-core-api"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-analytics",
+  "codex-app-server-protocol",
+@@ -3122,7 +3122,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-core-plugins"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "chrono",
+@@ -3177,7 +3177,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-diagnostics"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "libc",
+  "pretty_assertions",
+@@ -3185,7 +3185,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-exec"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "assert_cmd",
+@@ -3236,7 +3236,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-exec-server"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "arc-swap",
+@@ -3296,7 +3296,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-exec-server-protocol"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "base64 0.22.1",
+  "codex-file-system",
+@@ -3312,7 +3312,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-exec-server-test-support"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-exec-server",
+@@ -3327,7 +3327,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-execpolicy"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "clap",
+@@ -3345,7 +3345,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-experimental-api-macros"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "proc-macro2",
+  "quote",
+@@ -3354,7 +3354,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-extension-api"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-config",
+  "codex-context-fragments",
+@@ -3372,7 +3372,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-extension-items"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-utils-absolute-path",
+  "pretty_assertions",
+@@ -3384,7 +3384,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-external-agent-migration"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "chrono",
+  "codex-analytics",
+@@ -3414,7 +3414,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-features"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-network-proxy",
+  "codex-otel",
+@@ -3428,7 +3428,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-feedback"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "bytes",
+@@ -3451,7 +3451,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-file-search"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "clap",
+@@ -3467,7 +3467,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-file-system"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "bytes",
+  "codex-protocol",
+@@ -3479,7 +3479,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-file-watcher"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "notify",
+  "pretty_assertions",
+@@ -3490,7 +3490,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-git-attribution"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-backend-client",
+  "codex-extension-api",
+@@ -3503,7 +3503,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-git-utils"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "chrono",
+@@ -3529,7 +3529,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-goal-extension"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "chrono",
+@@ -3553,7 +3553,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-guardian-context"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-context-fragments",
+  "codex-history",
+@@ -3564,7 +3564,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-guardian-reviewer"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-analytics",
+@@ -3588,7 +3588,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-guardian-v2"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-analytics",
+@@ -3618,7 +3618,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-history"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-protocol",
+@@ -3630,7 +3630,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-history-notes-extension"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-analytics",
+  "codex-api",
+@@ -3655,7 +3655,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-home"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-extension-api",
+  "codex-utils-absolute-path",
+@@ -3667,7 +3667,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-hooks"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "async-channel",
+@@ -3693,7 +3693,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-http-client"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "bytes",
+  "codex-utils-cargo-bin",
+@@ -3726,7 +3726,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-image-generation-extension"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "base64 0.22.1",
+  "codex-api",
+@@ -3753,7 +3753,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-install-context"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-utils-absolute-path",
+  "codex-utils-home-dir",
+@@ -3766,7 +3766,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-keyring-store"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "keyring",
+  "tracing",
+@@ -3774,7 +3774,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-linux-sandbox"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "clap",
+  "codex-core",
+@@ -3801,7 +3801,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-lmstudio"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-core",
+  "codex-http-client",
+@@ -3815,7 +3815,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-login"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "base64 0.22.1",
+@@ -3858,7 +3858,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-mcp"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "arc-swap",
+@@ -3898,7 +3898,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-mcp-extension"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "axum",
+@@ -3929,7 +3929,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-memories-extension"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-core",
+  "codex-extension-api",
+@@ -3951,7 +3951,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-memories-read"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-protocol",
+  "codex-shell-command",
+@@ -3961,7 +3961,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-memories-write"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "chrono",
+@@ -3998,7 +3998,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-message-history"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-config",
+  "memchr",
+@@ -4012,7 +4012,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-model-provider"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "base64 0.22.1",
+  "chrono",
+@@ -4042,7 +4042,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-model-provider-info"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-api",
+  "codex-protocol",
+@@ -4059,7 +4059,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-models-manager"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "chrono",
+  "codex-collaboration-mode-templates",
+@@ -4078,7 +4078,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-mxc-sandbox"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "appcontainer_common",
+@@ -4100,7 +4100,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-network-proxy"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "base64 0.22.1",
+@@ -4144,7 +4144,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-ollama"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "assert_matches",
+  "async-stream",
+@@ -4164,7 +4164,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-otel"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "chrono",
+  "codex-api",
+@@ -4197,7 +4197,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-otel-trace-websocket"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "axum",
+@@ -4208,7 +4208,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-plugin"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-config",
+  "codex-protocol",
+@@ -4222,7 +4222,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-process-hardening"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "libc",
+  "pretty_assertions",
+@@ -4230,7 +4230,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-prompts"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-context-fragments",
+@@ -4244,7 +4244,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-protocol"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "chardetng",
+@@ -4288,7 +4288,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-queue-extension"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-core",
+@@ -4309,7 +4309,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-realtime-webrtc"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-build-info",
+@@ -4327,7 +4327,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-response-debug-context"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "base64 0.22.1",
+  "codex-api",
+@@ -4338,7 +4338,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-responses-api-proxy"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "clap",
+@@ -4355,7 +4355,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-rmcp-client"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "axum",
+@@ -4403,7 +4403,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-rollout"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "chrono",
+@@ -4430,7 +4430,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-rollout-trace"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-code-mode",
+@@ -4446,7 +4446,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-sandboxing"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-mxc-sandbox",
+@@ -4472,7 +4472,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-secrets"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "age",
+  "anyhow",
+@@ -4493,7 +4493,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-shell-command"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "base64 0.22.1",
+@@ -4516,7 +4516,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-shell-escalation"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "clap",
+@@ -4536,7 +4536,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-skills"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-protocol",
+  "codex-shell-command",
+@@ -4553,7 +4553,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-skills-extension"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "assert_matches",
+  "codex-analytics",
+@@ -4590,7 +4590,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-state"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "chrono",
+@@ -4614,7 +4614,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-stdio-to-uds"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-uds",
+@@ -4626,7 +4626,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-terminal-detection"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "pretty_assertions",
+  "tracing",
+@@ -4634,7 +4634,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-test-binary-support"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-arg0",
+  "tempfile",
+@@ -4642,7 +4642,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-thread-manager-sample"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "clap",
+@@ -4653,7 +4653,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-thread-store"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "chrono",
+  "codex-app-server-protocol",
+@@ -4683,7 +4683,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-tools"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "bitflags 2.13.1",
+  "codex-code-mode",
+@@ -4708,7 +4708,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-tui"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "app_test_support",
+@@ -4829,7 +4829,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-uds"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "async-io",
+  "pretty_assertions",
+@@ -4842,7 +4842,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-user-verification"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "base64 0.22.1",
+  "core-foundation 0.10.1",
+@@ -4862,7 +4862,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-absolute-path"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "dirs",
+  "dunce",
+@@ -4876,14 +4876,14 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-approval-presets"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-protocol",
+ ]
+ 
+ [[package]]
+ name = "codex-utils-audio"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "base64 0.22.1",
+  "codex-protocol",
+@@ -4897,7 +4897,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-cache"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "lru",
+  "sha1 0.10.6",
+@@ -4906,7 +4906,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-cargo-bin"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "assert_cmd",
+  "runfiles",
+@@ -4915,7 +4915,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-cli"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "clap",
+  "codex-protocol",
+@@ -4927,15 +4927,15 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-elapsed"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ 
+ [[package]]
+ name = "codex-utils-fuzzy-match"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ 
+ [[package]]
+ name = "codex-utils-git-discovery"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-git-utils",
+  "codex-utils-absolute-path",
+@@ -4948,7 +4948,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-home-dir"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-utils-absolute-path",
+  "dirs",
+@@ -4958,7 +4958,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-image"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "base64 0.22.1",
+  "codex-utils-cache",
+@@ -4971,7 +4971,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-json-to-toml"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "pretty_assertions",
+  "serde_json",
+@@ -4980,7 +4980,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-oss"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-core",
+  "codex-lmstudio",
+@@ -4990,7 +4990,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-output-truncation"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-protocol",
+  "codex-utils-string",
+@@ -4999,7 +4999,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-path"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-utils-absolute-path",
+  "dunce",
+@@ -5010,7 +5010,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-path-uri"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "base64 0.22.1",
+  "codex-utils-absolute-path",
+@@ -5026,7 +5026,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-plugins"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-exec-server",
+  "codex-exec-server-protocol",
+@@ -5040,7 +5040,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-pty"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "filedescriptor",
+@@ -5056,7 +5056,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-readiness"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "assert_matches",
+  "thiserror 2.0.18",
+@@ -5066,7 +5066,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-redacted-string"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "schemars 0.8.22",
+  "serde",
+@@ -5074,14 +5074,14 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-rustls-provider"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "rustls",
+ ]
+ 
+ [[package]]
+ name = "codex-utils-sandbox-summary"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-protocol",
+  "codex-utils-absolute-path",
+@@ -5090,7 +5090,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-sleep-inhibitor"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "core-foundation 0.9.4",
+  "libc",
+@@ -5100,14 +5100,14 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-stream-parser"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "pretty_assertions",
+ ]
+ 
+ [[package]]
+ name = "codex-utils-string"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "pretty_assertions",
+  "regex-lite",
+@@ -5117,14 +5117,14 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-utils-template"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "pretty_assertions",
+ ]
+ 
+ [[package]]
+ name = "codex-v8-poc"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "pretty_assertions",
+  "v8",
+@@ -5132,7 +5132,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-voice-host"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-install-context",
+@@ -5159,7 +5159,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-web-search-extension"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-api",
+  "codex-core",
+@@ -5180,7 +5180,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-websocket-client"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-http-client",
+  "codex-utils-rustls-provider",
+@@ -5196,7 +5196,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-windows-sandbox"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "base64 0.22.1",
+@@ -5222,7 +5222,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-windows-sandbox-service"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-cloud-config",
+@@ -5239,7 +5239,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-workload-identity"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "codex-http-client",
+  "pretty_assertions",
+@@ -5254,7 +5254,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "codex-worktree"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "codex-git-utils",
+@@ -5494,7 +5494,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "core_test_support"
+-version = "0.0.0"
++version = "0.155.0-alpha.9.2"
+ dependencies = [
+  "anyhow",
+  "assert_cmd",
+diff --git a/codex-rs/core/config.schema.json b/codex-rs/core/config.schema.json
+index 5058ed4..f17a081 100644
+--- a/codex-rs/core/config.schema.json
++++ b/codex-rs/core/config.schema.json
+@@ -2532,6 +2532,14 @@
+           "minimum": 0.0,
+           "type": "integer"
+         },
++        "message_delivery": {
++          "allOf": [
++            {
++              "$ref": "#/definitions/MultiAgentV2MessageDelivery"
++            }
++          ],
++          "description": "Delivery representation for `spawn_agent`, `send_message`, and `followup_task` payloads. `plaintext` additionally requires a non-reserved `tool_namespace` (for example `agents`) when the parent model is served by OpenAI, because the reserved `collaboration` namespace enforces the encrypted schema server-side."
++        },
+         "min_wait_timeout_ms": {
+           "format": "int64",
+           "maximum": 3600000.0,
+@@ -2574,6 +2582,14 @@
+       },
+       "type": "object"
+     },
++    "MultiAgentV2MessageDelivery": {
++      "description": "Selects how MultiAgentV2 collaboration tool payloads are delivered to agents.\n\n`encrypted` (default) keeps provider-encrypted delivery, which requires OpenAI models on both ends. `plaintext` serializes the task text so third-party OpenAI-compatible providers can consume spawn/message/follow-up payloads.",
++      "enum": [
++        "encrypted",
++        "plaintext"
++      ],
++      "type": "string"
++    },
+     "NetworkDomainPermissionToml": {
+       "enum": [
+         "allow",
+@@ -7224,4 +7240,4 @@
+   },
+   "title": "ConfigToml",
+   "type": "object"
+-}
++}
+\ No newline at end of file
+diff --git a/codex-rs/core/src/config/config_tests.rs b/codex-rs/core/src/config/config_tests.rs
+index d4e1adf..4376576 100644
+--- a/codex-rs/core/src/config/config_tests.rs
++++ b/codex-rs/core/src/config/config_tests.rs
+@@ -73,6 +73,7 @@ use codex_config::types::WindowsToml;
+ use codex_exec_server::LOCAL_FS;
+ use codex_features::Feature;
+ use codex_features::FeaturesToml;
++use codex_features::MultiAgentV2MessageDelivery;
+ use codex_login::default_client::RESIDENCY_HEADER_NAME;
+ use codex_login::test_support::auth_manager_from_optional_auth;
+ use codex_model_provider::ProviderCapabilities;
+@@ -13111,3 +13112,52 @@ fn sqlite_home_env_conflict_reports_an_override() -> std::io::Result<()> {
+ 
+     Ok(())
+ }
++
++#[tokio::test]
++async fn multi_agent_v2_message_delivery_defaults_to_encrypted_and_parses_plaintext() -> std::io::Result<()>
++{
++    let codex_home = TempDir::new()?;
++    std::fs::write(
++        codex_home.path().join(CONFIG_TOML_FILE),
++        r#"[features.multi_agent_v2]
++enabled = true
++message_delivery = "plaintext"
++tool_namespace = "agents"
++"#,
++    )?;
++
++    let config = ConfigBuilder::without_managed_config_for_tests()
++        .codex_home(codex_home.path().to_path_buf())
++        .fallback_cwd(Some(codex_home.path().to_path_buf()))
++        .build()
++        .await?;
++
++    assert_eq!(
++        config.multi_agent_v2.message_delivery,
++        MultiAgentV2MessageDelivery::Plaintext
++    );
++    assert_eq!(
++        config.multi_agent_v2.plaintext_tool_namespace(),
++        Some("agents")
++    );
++
++    let default_home = TempDir::new()?;
++    std::fs::write(
++        default_home.path().join(CONFIG_TOML_FILE),
++        r#"[features.multi_agent_v2]
++enabled = true
++"#,
++    )?;
++    let default_config = ConfigBuilder::without_managed_config_for_tests()
++        .codex_home(default_home.path().to_path_buf())
++        .fallback_cwd(Some(default_home.path().to_path_buf()))
++        .build()
++        .await?;
++    assert_eq!(
++        default_config.multi_agent_v2.message_delivery,
++        MultiAgentV2MessageDelivery::Encrypted
++    );
++    assert_eq!(default_config.multi_agent_v2.plaintext_tool_namespace(), None);
++
++    Ok(())
++}
+diff --git a/codex-rs/core/src/config/mod.rs b/codex-rs/core/src/config/mod.rs
+index 789b207..b0f968d 100644
+--- a/codex-rs/core/src/config/mod.rs
++++ b/codex-rs/core/src/config/mod.rs
+@@ -74,6 +74,7 @@ use codex_features::FeatureToml;
+ use codex_features::Features;
+ use codex_features::FeaturesToml;
+ use codex_features::MultiAgentV2ConfigToml;
++use codex_features::MultiAgentV2MessageDelivery;
+ use codex_features::NetworkProxyConfigToml;
+ use codex_features::SleepToolMode;
+ use codex_features::TokenBudgetConfigToml;
+@@ -1296,12 +1297,29 @@ pub struct MultiAgentV2Config {
+     pub subagent_developer_instructions: Option<String>,
+     pub multi_agent_mode_hint_text: Option<String>,
+     pub tool_namespace: Option<String>,
++    pub message_delivery: MultiAgentV2MessageDelivery,
+     pub hide_spawn_agent_metadata: bool,
+     pub expose_spawn_agent_model_overrides: bool,
+     pub wait_agent_enabled: bool,
+     pub non_code_mode_only: bool,
+ }
+ 
++impl MultiAgentV2Config {
++    /// When plaintext delivery is selected, the namespace whose collaboration tool
++    /// calls should be classified as plaintext messages. `None` keeps the
++    /// marker-only encrypted classification.
++    pub fn plaintext_tool_namespace(&self) -> Option<&str> {
++        if self.message_delivery != MultiAgentV2MessageDelivery::Plaintext {
++            return None;
++        }
++        Some(
++            self.tool_namespace
++                .as_deref()
++                .unwrap_or(DEFAULT_MULTI_AGENT_V2_TOOL_NAMESPACE),
++        )
++    }
++}
++
+ impl MultiAgentV2Config {
+     fn defaults_for_max_concurrency(max_concurrent_threads_per_session: usize) -> Self {
+         Self {
+@@ -1315,6 +1333,7 @@ impl MultiAgentV2Config {
+             subagent_developer_instructions: None,
+             multi_agent_mode_hint_text: None,
+             tool_namespace: Some(DEFAULT_MULTI_AGENT_V2_TOOL_NAMESPACE.to_string()),
++            message_delivery: MultiAgentV2MessageDelivery::default(),
+             hide_spawn_agent_metadata: true,
+             expose_spawn_agent_model_overrides: true,
+             wait_agent_enabled: true,
+@@ -2692,6 +2711,41 @@ fn resolve_code_mode_config(config_toml: &ConfigToml) -> CodeModeConfig {
+     }
+ }
+ 
++/// Deployment escape hatch for plaintext delivery that avoids editing the shared
++/// `config.toml`: stock codex builds reject unknown keys under
++/// `[features.multi_agent_v2]` and router tooling may rewrite the managed block,
++/// so an environment override lets a patched binary opt in without touching the
++/// file other codex builds parse. Unrecognized values fall back to the config.
++fn multi_agent_v2_message_delivery_from_env(
++    configured: MultiAgentV2MessageDelivery,
++) -> MultiAgentV2MessageDelivery {
++    match std::env::var("CODEX_MULTI_AGENT_V2_MESSAGE_DELIVERY")
++        .as_deref()
++        .map(str::trim)
++    {
++        Ok("plaintext") => MultiAgentV2MessageDelivery::Plaintext,
++        Ok("encrypted") => MultiAgentV2MessageDelivery::Encrypted,
++        _ => configured,
++    }
++}
++
++/// Environment override for the collaboration tool namespace; see
++/// [`multi_agent_v2_message_delivery_from_env`]. Empty or invalid values fall
++/// back to the configured namespace.
++fn multi_agent_v2_tool_namespace_from_env(configured: Option<String>) -> Option<String> {
++    match std::env::var("CODEX_MULTI_AGENT_V2_TOOL_NAMESPACE") {
++        Ok(value) => {
++            let trimmed = value.trim().to_string();
++            if trimmed.is_empty() {
++                configured
++            } else {
++                Some(trimmed)
++            }
++        }
++        Err(_) => configured,
++    }
++}
++
+ fn resolve_multi_agent_v2_config(config_toml: &ConfigToml) -> MultiAgentV2Config {
+     let base = multi_agent_v2_toml_config(config_toml.features.as_ref());
+     let max_concurrent_threads_per_session = base
+@@ -2745,6 +2799,11 @@ fn resolve_multi_agent_v2_config(config_toml: &ConfigToml) -> MultiAgentV2Config
+         .and_then(|config| config.tool_namespace.as_ref())
+         .cloned()
+         .or(default.tool_namespace);
++    let message_delivery = multi_agent_v2_message_delivery_from_env(
++        base.and_then(|config| config.message_delivery)
++            .unwrap_or(default.message_delivery),
++    );
++    let tool_namespace = multi_agent_v2_tool_namespace_from_env(tool_namespace);
+     let non_code_mode_only = base
+         .and_then(|config| config.non_code_mode_only)
+         .unwrap_or(default.non_code_mode_only);
+@@ -2760,6 +2819,7 @@ fn resolve_multi_agent_v2_config(config_toml: &ConfigToml) -> MultiAgentV2Config
+         subagent_developer_instructions,
+         multi_agent_mode_hint_text,
+         tool_namespace,
++        message_delivery,
+         hide_spawn_agent_metadata,
+         expose_spawn_agent_model_overrides,
+         wait_agent_enabled,
+diff --git a/codex-rs/core/src/stream_events_utils.rs b/codex-rs/core/src/stream_events_utils.rs
+index 3e3456e..acb0b91 100644
+--- a/codex-rs/core/src/stream_events_utils.rs
++++ b/codex-rs/core/src/stream_events_utils.rs
+@@ -322,7 +322,16 @@ pub(crate) async fn handle_output_item_done(
+                 )
+                 .await;
+ 
+-            let payload_preview = tool_log_payload(&call.payload, &call.direct_source());
++            let payload_preview = tool_log_payload(
++                &call.payload,
++                &call.direct_source(
++                    ctx.step_context
++                        .turn
++                        .config
++                        .multi_agent_v2
++                        .plaintext_tool_namespace(),
++                ),
++            );
+             tracing::info!(
+                 thread_id = %ctx.sess.thread_id,
+                 "ToolCall: {} {}",
+diff --git a/codex-rs/core/src/tools/handlers/multi_agents_common.rs b/codex-rs/core/src/tools/handlers/multi_agents_common.rs
+index 715a02b..9c90c83 100644
+--- a/codex-rs/core/src/tools/handlers/multi_agents_common.rs
++++ b/codex-rs/core/src/tools/handlers/multi_agents_common.rs
+@@ -19,6 +19,30 @@ use serde_json::Value as JsonValue;
+ pub(crate) const MIN_WAIT_TIMEOUT_MS: i64 = DEFAULT_MULTI_AGENT_V2_MIN_WAIT_TIMEOUT_MS;
+ pub(crate) const DEFAULT_WAIT_TIMEOUT_MS: i64 = 30_000;
+ pub(crate) const MAX_WAIT_TIMEOUT_MS: i64 = HARD_MAX_MULTI_AGENT_V2_TIMEOUT_MS;
++
++const ENCRYPTED_DELIVERY_TO_NON_OPENAI_MESSAGE: &str = concat!(
++    "This agent message would be delivered as provider-encrypted content, which only ",
++    "OpenAI models can read; the target agent would receive an empty task and fail silently. ",
++    "Set `[features.multi_agent_v2] message_delivery = \"plaintext\"` in config.toml ",
++    "(plus a non-reserved `tool_namespace` such as `\"agents\"` when the parent model is ",
++    "served by OpenAI), or target an OpenAI model."
++);
++
++/// Rejects encrypted delivery to a provider that cannot decrypt it, before the
++/// target agent is created or messaged, so misconfiguration fails loudly
++/// instead of producing an unusable agent.
++pub(crate) fn ensure_delivery_supported_by_provider(
++    encrypted: bool,
++    provider_is_openai: bool,
++) -> Result<(), FunctionCallError> {
++    if encrypted && !provider_is_openai {
++        return Err(FunctionCallError::RespondToModel(
++            ENCRYPTED_DELIVERY_TO_NON_OPENAI_MESSAGE.to_string(),
++        ));
++    }
++    Ok(())
++}
++
+ pub(crate) fn function_arguments(payload: ToolPayload) -> Result<String, FunctionCallError> {
+     match payload {
+         ToolPayload::Function { arguments } => Ok(arguments),
+diff --git a/codex-rs/core/src/tools/handlers/multi_agents_spec.rs b/codex-rs/core/src/tools/handlers/multi_agents_spec.rs
+index 4361161..b99d154 100644
+--- a/codex-rs/core/src/tools/handlers/multi_agents_spec.rs
++++ b/codex-rs/core/src/tools/handlers/multi_agents_spec.rs
+@@ -1,5 +1,6 @@
+ use crate::agent::child_config::MAX_SPAWN_AGENT_MODEL_OVERRIDES;
+ use crate::agent::child_config::model_supports_multi_agent_backend;
++use codex_features::MultiAgentV2MessageDelivery;
+ use codex_protocol::openai_models::ModelPreset;
+ use codex_protocol::protocol::MultiAgentVersion;
+ use codex_tools::JsonSchema;
+@@ -14,6 +15,19 @@ use std::collections::BTreeMap;
+ pub const MULTI_AGENT_V1_NAMESPACE: &str = "multi_agent_v1";
+ const MULTI_AGENT_V1_NAMESPACE_DESCRIPTION: &str = "Tools for spawning and managing sub-agents.";
+ 
++/// Builds the shared `message` property schema, marking it encrypted only for the
++/// default encrypted delivery so third-party providers can consume the payload.
++fn collaboration_message_schema(
++    description: &str,
++    delivery: MultiAgentV2MessageDelivery,
++) -> JsonSchema {
++    let schema = JsonSchema::string(Some(description.to_string()));
++    match delivery {
++        MultiAgentV2MessageDelivery::Encrypted => schema.with_encrypted(),
++        MultiAgentV2MessageDelivery::Plaintext => schema,
++    }
++}
++
+ const SPAWN_AGENT_INHERITED_MODEL_GUIDANCE: &str = "Spawned agents inherit your current model by default. Omit `model` to use that preferred default; set `model` only when an explicit override is needed.";
+ const SPAWN_AGENT_TYPE_OVERRIDE_DESCRIPTION_V1: &str = "Agent type override for the new agent. Omit to inherit the parent agent type with a full-history fork; otherwise, `default` is used.";
+ const SPAWN_AGENT_MODEL_OVERRIDE_DESCRIPTION: &str =
+@@ -29,6 +43,7 @@ pub struct SpawnAgentToolOptions {
+     pub expose_spawn_agent_model_overrides: bool,
+     pub multi_agent_version: MultiAgentVersion,
+     pub usage_hint_text: Option<String>,
++    pub message_delivery: MultiAgentV2MessageDelivery,
+ }
+ 
+ impl Default for SpawnAgentToolOptions {
+@@ -41,6 +56,7 @@ impl Default for SpawnAgentToolOptions {
+             expose_spawn_agent_model_overrides: false,
+             multi_agent_version: MultiAgentVersion::Disabled,
+             usage_hint_text: None,
++            message_delivery: MultiAgentV2MessageDelivery::default(),
+         }
+     }
+ }
+@@ -104,7 +120,10 @@ pub fn create_spawn_agent_tool_v2(options: SpawnAgentToolOptions) -> ToolSpec {
+     let inherited_model_guidance = (options.expose_spawn_agent_model_overrides
+         && !options.hide_agent_type_model_reasoning)
+         .then_some(SPAWN_AGENT_INHERITED_MODEL_GUIDANCE);
+-    let mut properties = spawn_agent_common_properties_v2(&options.agent_type_description);
++    let mut properties = spawn_agent_common_properties_v2(
++        &options.agent_type_description,
++        options.message_delivery,
++    );
+     if !options.expose_agent_type {
+         properties.remove("agent_type");
+     }
+@@ -178,7 +197,7 @@ pub fn create_send_input_tool_v1() -> ToolSpec {
+     })
+ }
+ 
+-pub fn create_send_message_tool() -> ToolSpec {
++pub fn create_send_message_tool(message_delivery: MultiAgentV2MessageDelivery) -> ToolSpec {
+     let properties = BTreeMap::from([
+         (
+             "target".to_string(),
+@@ -188,10 +207,10 @@ pub fn create_send_message_tool() -> ToolSpec {
+         ),
+         (
+             "message".to_string(),
+-            JsonSchema::string(Some(
+-                "Message text to queue on the target agent.".to_string(),
+-            ))
+-            .with_encrypted(),
++            collaboration_message_schema(
++                "Message text to queue on the target agent.",
++                message_delivery,
++            ),
+         ),
+     ]);
+ 
+@@ -210,7 +229,7 @@ pub fn create_send_message_tool() -> ToolSpec {
+     })
+ }
+ 
+-pub fn create_followup_task_tool() -> ToolSpec {
++pub fn create_followup_task_tool(message_delivery: MultiAgentV2MessageDelivery) -> ToolSpec {
+     let properties = BTreeMap::from([
+         (
+             "target".to_string(),
+@@ -221,10 +240,10 @@ pub fn create_followup_task_tool() -> ToolSpec {
+         ),
+         (
+             "message".to_string(),
+-            JsonSchema::string(Some(
+-                "Message text to send to the target agent.".to_string(),
+-            ))
+-            .with_encrypted(),
++            collaboration_message_schema(
++                "Message text to send to the target agent.",
++                message_delivery,
++            ),
+         ),
+     ]);
+ 
+@@ -623,14 +642,17 @@ fn spawn_agent_common_properties_v1(agent_type_description: &str) -> BTreeMap<St
+     ])
+ }
+ 
+-fn spawn_agent_common_properties_v2(agent_type_description: &str) -> BTreeMap<String, JsonSchema> {
++fn spawn_agent_common_properties_v2(
++    agent_type_description: &str,
++    message_delivery: MultiAgentV2MessageDelivery,
++) -> BTreeMap<String, JsonSchema> {
+     BTreeMap::from([
+         (
+             "message".to_string(),
+-            JsonSchema::string(Some(
+-                "Initial plain-text task for the new agent.".to_string(),
+-            ))
+-            .with_encrypted(),
++            collaboration_message_schema(
++                "Initial plain-text task for the new agent.",
++                message_delivery,
++            ),
+         ),
+         (
+             "agent_type".to_string(),
+diff --git a/codex-rs/core/src/tools/handlers/multi_agents_spec_tests.rs b/codex-rs/core/src/tools/handlers/multi_agents_spec_tests.rs
+index 888a113..18e10af 100644
+--- a/codex-rs/core/src/tools/handlers/multi_agents_spec_tests.rs
++++ b/codex-rs/core/src/tools/handlers/multi_agents_spec_tests.rs
+@@ -1,4 +1,5 @@
+ use super::*;
++use codex_features::MultiAgentV2MessageDelivery;
+ use codex_protocol::openai_models::ModelPreset;
+ use codex_protocol::openai_models::ModelServiceTier;
+ use codex_protocol::openai_models::ReasoningEffort;
+@@ -58,6 +59,7 @@ fn spawn_agent_tool_v2_requires_task_name_and_lists_visible_models() {
+         expose_spawn_agent_model_overrides: true,
+         multi_agent_version: MultiAgentVersion::V2,
+         usage_hint_text: None,
++        message_delivery: MultiAgentV2MessageDelivery::default(),
+     });
+ 
+     let ToolSpec::Function(ResponsesApiTool {
+@@ -137,6 +139,7 @@ fn spawn_agent_tool_v1_keeps_legacy_fork_context_field() {
+         expose_spawn_agent_model_overrides: true,
+         multi_agent_version: MultiAgentVersion::V1,
+         usage_hint_text: None,
++        message_delivery: MultiAgentV2MessageDelivery::default(),
+     });
+ 
+     let ToolSpec::Namespace(namespace) = tool else {
+@@ -197,6 +200,7 @@ fn spawn_agent_tool_caps_visible_model_summaries() {
+         expose_spawn_agent_model_overrides: true,
+         multi_agent_version: MultiAgentVersion::V2,
+         usage_hint_text: None,
++        message_delivery: MultiAgentV2MessageDelivery::default(),
+     });
+ 
+     let ToolSpec::Function(ResponsesApiTool { description, .. }) = tool else {
+@@ -243,6 +247,7 @@ fn spawn_agent_tool_keeps_model_controls_when_spawn_metadata_is_hidden() {
+         expose_spawn_agent_model_overrides: true,
+         multi_agent_version: MultiAgentVersion::V2,
+         usage_hint_text: None,
++        message_delivery: MultiAgentV2MessageDelivery::default(),
+     });
+ 
+     let ToolSpec::Function(ResponsesApiTool {
+@@ -276,6 +281,7 @@ fn spawn_agent_tool_hides_model_controls_without_override_exposure() {
+         expose_spawn_agent_model_overrides: false,
+         multi_agent_version: MultiAgentVersion::V2,
+         usage_hint_text: None,
++        message_delivery: MultiAgentV2MessageDelivery::default(),
+     });
+ 
+     let ToolSpec::Function(ResponsesApiTool {
+@@ -304,7 +310,7 @@ fn send_message_tool_requires_message_and_has_no_output_schema() {
+         parameters,
+         output_schema,
+         ..
+-    }) = create_send_message_tool()
++    }) = create_send_message_tool(MultiAgentV2MessageDelivery::default())
+     else {
+         panic!("send_message should be a function tool");
+     };
+@@ -347,7 +353,7 @@ fn followup_task_tool_requires_message_and_has_no_output_schema() {
+         parameters,
+         output_schema,
+         ..
+-    }) = create_followup_task_tool()
++    }) = create_followup_task_tool(MultiAgentV2MessageDelivery::default())
+     else {
+         panic!("followup_task should be a function tool");
+     };
+@@ -474,3 +480,75 @@ fn list_agents_tool_status_schema_includes_interrupted() {
+         ])
+     );
+ }
++
++#[test]
++fn send_message_tool_plaintext_delivery_omits_encrypted_marker() {
++    let ToolSpec::Function(ResponsesApiTool { parameters, .. }) =
++        create_send_message_tool(MultiAgentV2MessageDelivery::Plaintext)
++    else {
++        panic!("send_message should be a function tool");
++    };
++    let properties = parameters
++        .properties
++        .as_ref()
++        .expect("send_message should use object params");
++    assert_eq!(
++        properties.get("message").and_then(|schema| schema.encrypted),
++        None
++    );
++}
++
++#[test]
++fn followup_task_tool_plaintext_delivery_omits_encrypted_marker() {
++    let ToolSpec::Function(ResponsesApiTool { parameters, .. }) =
++        create_followup_task_tool(MultiAgentV2MessageDelivery::Plaintext)
++    else {
++        panic!("followup_task should be a function tool");
++    };
++    let properties = parameters
++        .properties
++        .as_ref()
++        .expect("followup_task should use object params");
++    assert_eq!(
++        properties.get("message").and_then(|schema| schema.encrypted),
++        None
++    );
++}
++
++#[test]
++fn spawn_agent_tool_v2_plaintext_delivery_omits_encrypted_marker() {
++    let ToolSpec::Function(ResponsesApiTool { parameters, .. }) =
++        create_spawn_agent_tool_v2(SpawnAgentToolOptions {
++            message_delivery: MultiAgentV2MessageDelivery::Plaintext,
++            multi_agent_version: MultiAgentVersion::V2,
++            ..Default::default()
++        })
++    else {
++        panic!("spawn_agent v2 should be a function tool");
++    };
++    let properties = parameters
++        .properties
++        .as_ref()
++        .expect("spawn_agent should use object params");
++    assert_eq!(
++        properties.get("message").and_then(|schema| schema.encrypted),
++        None
++    );
++    // The default (encrypted) keeps the marker.
++    let ToolSpec::Function(ResponsesApiTool { parameters, .. }) =
++        create_spawn_agent_tool_v2(SpawnAgentToolOptions {
++            multi_agent_version: MultiAgentVersion::V2,
++            ..Default::default()
++        })
++    else {
++        panic!("spawn_agent v2 should be a function tool");
++    };
++    let properties = parameters
++        .properties
++        .as_ref()
++        .expect("spawn_agent should use object params");
++    assert_eq!(
++        properties.get("message").and_then(|schema| schema.encrypted),
++        Some(true)
++    );
++}
+diff --git a/codex-rs/core/src/tools/handlers/multi_agents_tests.rs b/codex-rs/core/src/tools/handlers/multi_agents_tests.rs
+index 75b57df..249431d 100644
+--- a/codex-rs/core/src/tools/handlers/multi_agents_tests.rs
++++ b/codex-rs/core/src/tools/handlers/multi_agents_tests.rs
+@@ -27,6 +27,7 @@ use crate::tools::handlers::multi_agents_v2::WaitAgentHandler as WaitAgentHandle
+ use crate::turn_diff_tracker::TurnDiffTracker;
+ use codex_extension_api::empty_extension_registry;
+ use codex_features::Feature;
++use codex_features::MultiAgentV2MessageDelivery;
+ use codex_history::InitialHistory;
+ use codex_history::RolloutItem;
+ use codex_login::AuthManager;
+@@ -1047,7 +1048,7 @@ async fn multi_agent_v2_spawn_returns_path_and_send_message_accepts_relative_pat
+             )
+     }));
+ 
+-    SendMessageHandlerV2
++    SendMessageHandlerV2::new(MultiAgentV2MessageDelivery::default())
+         .handle(invocation(
+             session.clone(),
+             turn.clone(),
+@@ -1243,7 +1244,7 @@ async fn multi_agent_v2_send_message_accepts_root_target_from_child() {
+         agent_role: None,
+     });
+ 
+-    SendMessageHandlerV2
++    SendMessageHandlerV2::new(MultiAgentV2MessageDelivery::default())
+         .handle(invocation(
+             Arc::new(session),
+             Arc::new(turn),
+@@ -1319,7 +1320,7 @@ async fn multi_agent_v2_followup_task_rejects_root_target_from_child() {
+         agent_role: None,
+     });
+ 
+-    let Err(err) = FollowupTaskHandlerV2
++    let Err(err) = FollowupTaskHandlerV2::new(MultiAgentV2MessageDelivery::default())
+         .handle(invocation(
+             Arc::new(session),
+             Arc::new(turn),
+@@ -1701,7 +1702,7 @@ async fn multi_agent_v2_send_message_rejects_legacy_items_field() {
+         })),
+     );
+ 
+-    let Err(err) = SendMessageHandlerV2.handle(invocation).await else {
++    let Err(err) = SendMessageHandlerV2::new(MultiAgentV2MessageDelivery::default()).handle(invocation).await else {
+         panic!("legacy items field should be rejected in v2");
+     };
+     let FunctionCallError::RespondToModel(message) = err else {
+@@ -1756,7 +1757,7 @@ async fn multi_agent_v2_send_message_rejects_interrupt_parameter() {
+         })),
+     );
+ 
+-    let Err(err) = SendMessageHandlerV2.handle(invocation).await else {
++    let Err(err) = SendMessageHandlerV2::new(MultiAgentV2MessageDelivery::default()).handle(invocation).await else {
+         panic!("send_message interrupt parameter should be rejected");
+     };
+     let FunctionCallError::RespondToModel(message) = err else {
+@@ -1844,7 +1845,7 @@ async fn multi_agent_v2_followup_task_completion_notifies_parent_on_every_turn()
+         )
+         .await;
+ 
+-    FollowupTaskHandlerV2
++    FollowupTaskHandlerV2::new(MultiAgentV2MessageDelivery::default())
+         .handle(invocation(
+             session,
+             turn,
+@@ -1984,7 +1985,7 @@ async fn multi_agent_v2_followup_task_rejects_legacy_items_field() {
+         })),
+     );
+ 
+-    let Err(err) = FollowupTaskHandlerV2.handle(invocation).await else {
++    let Err(err) = FollowupTaskHandlerV2::new(MultiAgentV2MessageDelivery::default()).handle(invocation).await else {
+         panic!("legacy items field should be rejected in v2");
+     };
+     let FunctionCallError::RespondToModel(message) = err else {
+diff --git a/codex-rs/core/src/tools/handlers/multi_agents_v2/followup_task.rs b/codex-rs/core/src/tools/handlers/multi_agents_v2/followup_task.rs
+index 161e644..0e6b47f 100644
+--- a/codex-rs/core/src/tools/handlers/multi_agents_v2/followup_task.rs
++++ b/codex-rs/core/src/tools/handlers/multi_agents_v2/followup_task.rs
+@@ -4,9 +4,18 @@ use super::message_tool::handle_message_string_tool;
+ use super::*;
+ use crate::agent::control::MessageDeliveryMode;
+ use crate::tools::handlers::multi_agents_spec::create_followup_task_tool;
++use codex_features::MultiAgentV2MessageDelivery;
+ use codex_tools::ToolSpec;
+ 
+-pub(crate) struct Handler;
++pub(crate) struct Handler {
++    message_delivery: MultiAgentV2MessageDelivery,
++}
++
++impl Handler {
++    pub(crate) fn new(message_delivery: MultiAgentV2MessageDelivery) -> Self {
++        Self { message_delivery }
++    }
++}
+ 
+ impl ToolExecutor<ToolInvocation> for Handler {
+     fn tool_name(&self) -> ToolName {
+@@ -14,7 +23,7 @@ impl ToolExecutor<ToolInvocation> for Handler {
+     }
+ 
+     fn spec(&self) -> ToolSpec {
+-        create_followup_task_tool()
++        create_followup_task_tool(self.message_delivery)
+     }
+ 
+     fn handle<'a>(&'a self, invocation: ToolInvocation) -> codex_tools::ToolExecutorFuture<'a>
+diff --git a/codex-rs/core/src/tools/handlers/multi_agents_v2/message_tool.rs b/codex-rs/core/src/tools/handlers/multi_agents_v2/message_tool.rs
+index e319a20..7727b01 100644
+--- a/codex-rs/core/src/tools/handlers/multi_agents_v2/message_tool.rs
++++ b/codex-rs/core/src/tools/handlers/multi_agents_v2/message_tool.rs
+@@ -52,6 +52,28 @@ pub(super) async fn handle_message_string_tool(
+     } = invocation;
+     let receiver_thread_id = resolve_agent_target(&session, &turn, &target).await?;
+     analytics.set_receiver(receiver_thread_id);
++    let agent_message = agent_message_from_tool(message, &source);
++    if matches!(agent_message, AgentMessage::Encrypted(_)) {
++        let receiver_snapshot = session
++            .services
++            .agent_control
++            .get_agent_config_snapshot(receiver_thread_id)
++            .await;
++        let provider_is_openai = receiver_snapshot
++            .as_ref()
++            .and_then(|snapshot| {
++                turn.config
++                    .model_providers
++                    .get(&snapshot.model_provider_id)
++                    .map(|provider| provider.is_openai())
++            })
++            .unwrap_or_else(|| {
++                receiver_snapshot.as_ref().is_some_and(|snapshot| {
++                    snapshot.model_provider_id == codex_model_provider_info::OPENAI_PROVIDER_ID
++                })
++            });
++        ensure_delivery_supported_by_provider(true, provider_is_openai)?;
++    }
+     let receiver_agent_path = session
+         .services
+         .agent_control
+@@ -59,7 +81,7 @@ pub(super) async fn handle_message_string_tool(
+             session.thread_id,
+             &turn,
+             receiver_thread_id,
+-            agent_message_from_tool(message, &source),
++            agent_message,
+             mode,
+         )
+         .await
+diff --git a/codex-rs/core/src/tools/handlers/multi_agents_v2/send_message.rs b/codex-rs/core/src/tools/handlers/multi_agents_v2/send_message.rs
+index f198717..a3df32b 100644
+--- a/codex-rs/core/src/tools/handlers/multi_agents_v2/send_message.rs
++++ b/codex-rs/core/src/tools/handlers/multi_agents_v2/send_message.rs
+@@ -4,9 +4,18 @@ use super::message_tool::handle_message_string_tool;
+ use super::*;
+ use crate::agent::control::MessageDeliveryMode;
+ use crate::tools::handlers::multi_agents_spec::create_send_message_tool;
++use codex_features::MultiAgentV2MessageDelivery;
+ use codex_tools::ToolSpec;
+ 
+-pub(crate) struct Handler;
++pub(crate) struct Handler {
++    message_delivery: MultiAgentV2MessageDelivery,
++}
++
++impl Handler {
++    pub(crate) fn new(message_delivery: MultiAgentV2MessageDelivery) -> Self {
++        Self { message_delivery }
++    }
++}
+ 
+ impl ToolExecutor<ToolInvocation> for Handler {
+     fn tool_name(&self) -> ToolName {
+@@ -14,7 +23,7 @@ impl ToolExecutor<ToolInvocation> for Handler {
+     }
+ 
+     fn spec(&self) -> ToolSpec {
+-        create_send_message_tool()
++        create_send_message_tool(self.message_delivery)
+     }
+ 
+     fn handle<'a>(&'a self, invocation: ToolInvocation) -> codex_tools::ToolExecutorFuture<'a>
+diff --git a/codex-rs/core/src/tools/handlers/multi_agents_v2/spawn.rs b/codex-rs/core/src/tools/handlers/multi_agents_v2/spawn.rs
+index d7899c7..65b0a09 100644
+--- a/codex-rs/core/src/tools/handlers/multi_agents_v2/spawn.rs
++++ b/codex-rs/core/src/tools/handlers/multi_agents_v2/spawn.rs
+@@ -157,7 +157,12 @@ async fn handle_spawn_agent(
+         .session_source
+         .get_agent_path()
+         .unwrap_or_else(AgentPath::root);
+-    let communication = agent_message_from_tool(message, &source).into_communication(
++    let agent_message = agent_message_from_tool(message, &source);
++    ensure_delivery_supported_by_provider(
++        matches!(agent_message, AgentMessage::Encrypted(_)),
++        config.model_provider.is_openai(),
++    )?;
++    let communication = agent_message.into_communication(
+         author,
+         new_agent_path.clone(),
+         MessageDeliveryMode::TriggerTurn,
+diff --git a/codex-rs/core/src/tools/parallel.rs b/codex-rs/core/src/tools/parallel.rs
+index c3bb77a..872410c 100644
+--- a/codex-rs/core/src/tools/parallel.rs
++++ b/codex-rs/core/src/tools/parallel.rs
+@@ -79,7 +79,13 @@ impl ToolCallRuntime {
+         cancellation_token: CancellationToken,
+     ) -> impl std::future::Future<Output = Result<ResponseItemEnvelope, CodexErr>> {
+         let error_call = call.clone();
+-        let source = call.direct_source();
++        let source = call.direct_source(
++            self.step_context
++                .turn
++                .config
++                .multi_agent_v2
++                .plaintext_tool_namespace(),
++        );
+         let recorder = self.session.services.executed_tool_calls.clone();
+         let recorded_call = recorder.prepare_direct_call(&call, &source, &self.step_context);
+         let step_context = Arc::clone(&self.step_context);
+diff --git a/codex-rs/core/src/tools/router.rs b/codex-rs/core/src/tools/router.rs
+index c3526fe..dafd13d 100644
+--- a/codex-rs/core/src/tools/router.rs
++++ b/codex-rs/core/src/tools/router.rs
+@@ -42,21 +42,40 @@ pub struct ToolCall {
+ }
+ 
+ impl ToolCall {
+-    pub(crate) fn direct_source(&self) -> ToolCallSource {
+-        if self.tool_name.namespace.as_deref() == Some("collaboration")
+-            && matches!(
+-                self.tool_name.name.as_str(),
+-                "spawn_agent" | "send_message" | "followup_task"
+-            )
+-            && self
+-                .encrypted_function_args
+-                .as_ref()
+-                .is_some_and(Vec::is_empty)
++    /// Classifies a direct collaboration tool call.
++    ///
++    /// Plaintext classification applies when the model returned the empty encrypted-args
++    /// marker under the reserved `collaboration` namespace, or when plaintext delivery is
++    /// configured and the call targets the configured tool namespace. Real encrypted
++    /// arguments always stay encrypted so ciphertext is never wrapped as plaintext.
++    pub(crate) fn direct_source(&self, plaintext_namespace: Option<&str>) -> ToolCallSource {
++        if matches!(
++            self.tool_name.name.as_str(),
++            "spawn_agent" | "send_message" | "followup_task"
++        ) && self
++            .encrypted_function_args
++            .as_ref()
++            .is_none_or(Vec::is_empty)
+         {
+-            ToolCallSource::DirectPlaintextMessage
+-        } else {
+-            ToolCallSource::Direct
++            let marker_path = self.tool_name.namespace.as_deref() == Some("collaboration")
++                && self
++                    .encrypted_function_args
++                    .as_ref()
++                    .is_some_and(Vec::is_empty);
++            // Plaintext mode guarantees the collaboration schemas carry no encrypted
++            // marker, so calls under the configured namespace — or plain-named when
++            // the provider does not support namespaces — are plaintext by construction.
++            let plaintext_path = plaintext_namespace.is_some_and(|namespace| {
++                self.tool_name
++                    .namespace
++                    .as_deref()
++                    .is_none_or(|call_namespace| call_namespace == namespace)
++            });
++            if marker_path || plaintext_path {
++                return ToolCallSource::DirectPlaintextMessage;
++            }
+         }
++        ToolCallSource::Direct
+     }
+ }
+ 
+diff --git a/codex-rs/core/src/tools/router_tests.rs b/codex-rs/core/src/tools/router_tests.rs
+index 05a1e2e..2848518 100644
+--- a/codex-rs/core/src/tools/router_tests.rs
++++ b/codex-rs/core/src/tools/router_tests.rs
+@@ -44,6 +44,81 @@ use super::tool_log_payload;
+ 
+ struct ExtensionEchoContributor;
+ 
++fn collab_call(namespace: &str, encrypted_function_args: Option<Vec<String>>) -> ToolCall {
++    ToolCall {
++        tool_name: ToolName::namespaced(namespace, "spawn_agent"),
++        call_id: "call-collab".to_string(),
++        payload: ToolPayload::Function {
++            arguments: json!({"task_name": "test", "message": "do the task"}).to_string(),
++        },
++        encrypted_function_args,
++    }
++}
++
++#[test]
++fn direct_source_keeps_encrypted_classification_for_marker_and_default() {
++    // Reserved namespace with the empty encrypted-args marker stays plaintext (server marker path).
++    assert_eq!(
++        collab_call("collaboration", Some(Vec::new())).direct_source(None),
++        ToolCallSource::DirectPlaintextMessage
++    );
++    // Without the marker and without a plaintext policy, encrypted args classify as Direct.
++    assert_eq!(
++        collab_call("collaboration", None).direct_source(None),
++        ToolCallSource::Direct
++    );
++}
++
++#[test]
++fn direct_source_classifies_configured_namespace_as_plaintext() {
++    // Plaintext policy with a custom namespace classifies calls without any marker.
++    assert_eq!(
++        collab_call("agents", None).direct_source(Some("agents")),
++        ToolCallSource::DirectPlaintextMessage
++    );
++    // Plaintext policy keeps working with the default reserved namespace.
++    assert_eq!(
++        collab_call("collaboration", None).direct_source(Some("collaboration")),
++        ToolCallSource::DirectPlaintextMessage
++    );
++    // A namespace other than the configured one stays Direct.
++    assert_eq!(
++        collab_call("other", None).direct_source(Some("agents")),
++        ToolCallSource::Direct
++    );
++    // Un-namespaced collaboration tools (providers without namespace support)
++    // classify as plaintext when plaintext delivery is configured.
++    let plain = ToolCall {
++        tool_name: ToolName::plain("spawn_agent"),
++        call_id: "call-plain".to_string(),
++        payload: ToolPayload::Function {
++            arguments: "{}".to_string(),
++        },
++        encrypted_function_args: None,
++    };
++    assert_eq!(
++        plain.direct_source(Some("agents")),
++        ToolCallSource::DirectPlaintextMessage
++    );
++    assert_eq!(plain.direct_source(None), ToolCallSource::Direct);
++}
++
++#[test]
++fn direct_source_never_wraps_real_encrypted_args_as_plaintext() {
++    // Real encrypted arguments stay Direct even under the plaintext policy, so
++    // ciphertext is never re-labeled as a plaintext message.
++    assert_eq!(
++        collab_call("agents", Some(vec!["ciphertext".to_string()]))
++            .direct_source(Some("agents")),
++        ToolCallSource::Direct
++    );
++    assert_eq!(
++        collab_call("collaboration", Some(vec!["ciphertext".to_string()]))
++            .direct_source(Some("collaboration")),
++        ToolCallSource::Direct
++    );
++}
++
+ #[test]
+ fn tool_log_payload_redacts_plaintext_multi_agent_messages() {
+     let payload = ToolPayload::Function {
+@@ -228,7 +303,7 @@ async fn build_tool_call_uses_namespace_for_registry_name() -> anyhow::Result<()
+     );
+     assert_eq!(call.call_id, "call-namespace");
+     assert_eq!(call.encrypted_function_args, Some(Vec::new()));
+-    assert_eq!(call.direct_source(), ToolCallSource::Direct);
++    assert_eq!(call.direct_source(None), ToolCallSource::Direct);
+     match call.payload {
+         ToolPayload::Function { arguments } => {
+             assert_eq!(arguments, "{}");
+diff --git a/codex-rs/core/src/tools/spec_plan.rs b/codex-rs/core/src/tools/spec_plan.rs
+index ac1ca68..ece648e 100644
+--- a/codex-rs/core/src/tools/spec_plan.rs
++++ b/codex-rs/core/src/tools/spec_plan.rs
+@@ -1243,6 +1243,7 @@ fn add_core_utility_tools(context: &CoreToolPlanContext<'_>, registry: &mut Tool
+ fn add_collaboration_tools(context: &CoreToolPlanContext<'_>, registry: &mut ToolRegistry) {
+     let turn_context = context.turn_context;
+     if collab_tools_enabled(turn_context, context.model_info) {
++        let message_delivery = turn_context.config.multi_agent_v2.message_delivery;
+         if multi_agent_v2_enabled(turn_context) {
+             let exposure = if turn_context.config.multi_agent_v2.non_code_mode_only {
+                 ToolExposure::DirectModelOnly
+@@ -1269,17 +1270,24 @@ fn add_collaboration_tools(context: &CoreToolPlanContext<'_>, registry: &mut Too
+                             .expose_spawn_agent_model_overrides,
+                         multi_agent_version: turn_context.multi_agent_version,
+                         usage_hint_text: turn_context.config.multi_agent_v2.usage_hint_text.clone(),
++                        message_delivery,
+                     }),
+                     tool_namespace,
+                 ),
+                 exposure,
+             );
+             registry.register_trusted_with_exposure(
+-                multi_agent_v2_handler(SendMessageHandlerV2, tool_namespace),
++                multi_agent_v2_handler(
++                    SendMessageHandlerV2::new(message_delivery),
++                    tool_namespace,
++                ),
+                 exposure,
+             );
+             registry.register_trusted_with_exposure(
+-                multi_agent_v2_handler(FollowupTaskHandlerV2, tool_namespace),
++                multi_agent_v2_handler(
++                    FollowupTaskHandlerV2::new(message_delivery),
++                    tool_namespace,
++                ),
+                 exposure,
+             );
+             if turn_context.config.multi_agent_v2.wait_agent_enabled {
+@@ -1316,6 +1324,7 @@ fn add_collaboration_tools(context: &CoreToolPlanContext<'_>, registry: &mut Too
+                     expose_spawn_agent_model_overrides: true,
+                     multi_agent_version: turn_context.multi_agent_version,
+                     usage_hint_text: turn_context.config.multi_agent_v2.usage_hint_text.clone(),
++                    message_delivery,
+                 }),
+                 exposure,
+             );
+diff --git a/codex-rs/features/src/feature_configs.rs b/codex-rs/features/src/feature_configs.rs
+index e697767..1a96368 100644
+--- a/codex-rs/features/src/feature_configs.rs
++++ b/codex-rs/features/src/feature_configs.rs
+@@ -245,6 +245,19 @@ where
+     Ok(feature)
+ }
+ 
++/// Selects how MultiAgentV2 collaboration tool payloads are delivered to agents.
++///
++/// `encrypted` (default) keeps provider-encrypted delivery, which requires OpenAI
++/// models on both ends. `plaintext` serializes the task text so third-party
++/// OpenAI-compatible providers can consume spawn/message/follow-up payloads.
++#[derive(Serialize, Deserialize, Debug, Clone, Copy, Default, PartialEq, Eq, JsonSchema)]
++#[serde(rename_all = "lowercase")]
++pub enum MultiAgentV2MessageDelivery {
++    #[default]
++    Encrypted,
++    Plaintext,
++}
++
+ #[derive(Serialize, Deserialize, Debug, Clone, Default, PartialEq, Eq, JsonSchema)]
+ #[serde(deny_unknown_fields)]
+ pub struct MultiAgentV2ConfigToml {
+@@ -279,6 +292,12 @@ pub struct MultiAgentV2ConfigToml {
+     #[serde(skip_serializing_if = "Option::is_none")]
+     #[schemars(length(min = 1, max = 64), regex(pattern = r"^[a-zA-Z0-9_-]+$"))]
+     pub tool_namespace: Option<String>,
++    /// Delivery representation for `spawn_agent`, `send_message`, and `followup_task`
++    /// payloads. `plaintext` additionally requires a non-reserved `tool_namespace`
++    /// (for example `agents`) when the parent model is served by OpenAI, because the
++    /// reserved `collaboration` namespace enforces the encrypted schema server-side.
++    #[serde(skip_serializing_if = "Option::is_none")]
++    pub message_delivery: Option<MultiAgentV2MessageDelivery>,
+     #[serde(skip_serializing_if = "Option::is_none")]
+     pub hide_spawn_agent_metadata: Option<bool>,
+     /// Exposes `model` and `reasoning_effort` on the multi-agent v2 spawn tool and adds
+diff --git a/codex-rs/features/src/lib.rs b/codex-rs/features/src/lib.rs
+index b6355c2..2c40292 100644
+--- a/codex-rs/features/src/lib.rs
++++ b/codex-rs/features/src/lib.rs
+@@ -27,6 +27,7 @@ pub use feature_configs::GuardianV2ReviewScopeConfigToml;
+ pub use feature_configs::GuardianV2TranscriptConfigToml;
+ pub use feature_configs::GuardianV2TranscriptSource;
+ pub use feature_configs::MultiAgentV2ConfigToml;
++pub use feature_configs::MultiAgentV2MessageDelivery;
+ pub use feature_configs::NetworkProxyConfigToml;
+ pub use feature_configs::NetworkProxyDomainPermissionToml;
+ pub use feature_configs::NetworkProxyModeToml;
+diff --git a/codex-rs/features/src/tests.rs b/codex-rs/features/src/tests.rs
+index 5243731..102ae6f 100644
+--- a/codex-rs/features/src/tests.rs
++++ b/codex-rs/features/src/tests.rs
+@@ -742,6 +742,7 @@ subagent_usage_hint_text = "Subagent guidance."
+ subagent_developer_instructions = "Delegate carefully."
+ multi_agent_mode_hint_text = "Custom mode guidance."
+ tool_namespace = "agents"
++message_delivery = "plaintext"
+ hide_spawn_agent_metadata = true
+ expose_spawn_agent_model_overrides = true
+ wait_agent_enabled = false
+@@ -769,6 +770,7 @@ non_code_mode_only = true
+             subagent_developer_instructions: Some("Delegate carefully.".to_string()),
+             multi_agent_mode_hint_text: Some("Custom mode guidance.".to_string()),
+             tool_namespace: Some("agents".to_string()),
++            message_delivery: Some(crate::MultiAgentV2MessageDelivery::Plaintext),
+             hide_spawn_agent_metadata: Some(true),
+             expose_spawn_agent_model_overrides: Some(true),
+             wait_agent_enabled: Some(false),
