@@ -50,7 +50,7 @@ jobs:
 
       - name: Apply patch
         shell: bash
-        run: git -C codex apply --3way plaintext-delivery.patch
+        run: git -C codex apply "$GITHUB_WORKSPACE/plaintext-delivery.patch"
 
       - uses: dtolnay/rust-toolchain@stable
 
