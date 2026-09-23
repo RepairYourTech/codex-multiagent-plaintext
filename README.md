@@ -120,6 +120,17 @@ patch itself is provider-agnostic: it works with any OpenAI-compatible
 provider, whether routed through opencodex, another gateway, or configured
 directly.
 
+**Known interaction (opencodex + custom tool namespace):** opencodex's proxy
+bridges the reserved `collaboration` tool namespace and rewrites
+encrypted-slot task payloads, but does not yet recognize the non-reserved
+`agents` namespace this patch's plaintext mode uses for OpenAI-backend
+parents. Multi-agent sessions routed through opencodex's translated/pool
+routes may therefore still fail at the child agent until opencodex adds
+`agents`-namespace bridging (stock codex fails on those routes too, with
+encrypted-payload errors). Direct provider configurations — custom
+`[model_providers]` entries or other routers that pass tools and input items
+through verbatim — work fully with this patch.
+
 ## Subagent concurrency
 
 The installer also makes sure `features.multi_agent_v2.max_concurrent_threads_per_session`
